@@ -1,19 +1,13 @@
 // Soft UI Dashboard React components
 import SuiTypography from "components/SuiTypography";
 import SuiBadge from "components/SuiBadge";
-// Images
 
-import logoAtlassian from "assets/images/small-logos/logo-atlassian.svg";
-import logoSlack from "assets/images/small-logos/logo-slack.svg";
-import logoSpotify from "assets/images/small-logos/logo-spotify.svg";
-import logoJira from "assets/images/small-logos/logo-jira.svg";
-import logoInvesion from "assets/images/small-logos/logo-invision.svg";
-
-export default function data() {
+export default function Tabledata() {
   return {
     columns: [
       { name: "작업자", align: "center" },
-      { name: "소속", align: "c" },
+      { name: "소속", align: "center" },
+      { name: "연락처", align: "center" },
       { name: "행동", align: "center" },
       { name: "상태", align: "center" },
     ],
@@ -25,10 +19,19 @@ export default function data() {
             신주영
           </SuiTypography>
         ),
-        소속: [logoAtlassian, "현대건설"],
+        소속: (
+          <SuiTypography variant="caption" color="text" fontWeight="medium">
+            현대건설
+          </SuiTypography>
+        ),
         행동: (
           <SuiTypography variant="caption" color="text" fontWeight="medium">
-            정상
+            주의
+          </SuiTypography>
+        ),
+        연락처: (
+          <SuiTypography variant="caption" color="text" fontWeight="medium">
+            01023397372
           </SuiTypography>
         ),
         상태: (
@@ -41,10 +44,19 @@ export default function data() {
             배지왕
           </SuiTypography>
         ),
-        소속: [logoAtlassian, "현대건설"],
+        소속: (
+          <SuiTypography variant="caption" color="text" fontWeight="medium">
+            동아건설
+          </SuiTypography>
+        ),
         행동: (
           <SuiTypography variant="caption" color="text" fontWeight="medium">
             정상
+          </SuiTypography>
+        ),
+        연락처: (
+          <SuiTypography variant="caption" color="text" fontWeight="medium">
+            01023397372
           </SuiTypography>
         ),
         상태: (
@@ -57,10 +69,19 @@ export default function data() {
             서영준
           </SuiTypography>
         ),
-        소속: [logoSlack, "동아건설"],
+        소속: (
+          <SuiTypography variant="caption" color="text" fontWeight="medium">
+            동아건설
+          </SuiTypography>
+        ),
         행동: (
           <SuiTypography variant="caption" color="text" fontWeight="medium">
-            정상
+            주의
+          </SuiTypography>
+        ),
+        연락처: (
+          <SuiTypography variant="caption" color="text" fontWeight="medium">
+            01023397372
           </SuiTypography>
         ),
         상태: (
@@ -73,10 +94,19 @@ export default function data() {
             백동채
           </SuiTypography>
         ),
-        소속: [logoSpotify, "한화건설"],
+        소속: (
+          <SuiTypography variant="caption" color="text" fontWeight="medium">
+            한화건설
+          </SuiTypography>
+        ),
         행동: (
           <SuiTypography variant="caption" color="text" fontWeight="medium">
             정상
+          </SuiTypography>
+        ),
+        연락처: (
+          <SuiTypography variant="caption" color="text" fontWeight="medium">
+            01023397372
           </SuiTypography>
         ),
         상태: (
@@ -89,10 +119,19 @@ export default function data() {
             김인표
           </SuiTypography>
         ),
-        소속: [logoJira, "롯데건설"],
+        소속: (
+          <SuiTypography variant="caption" color="text" fontWeight="medium">
+            롯데건설
+          </SuiTypography>
+        ),
         행동: (
           <SuiTypography variant="caption" color="text" fontWeight="medium">
             정상
+          </SuiTypography>
+        ),
+        연락처: (
+          <SuiTypography variant="caption" color="text" fontWeight="medium">
+            01023397372
           </SuiTypography>
         ),
         상태: (
@@ -105,10 +144,19 @@ export default function data() {
             견종빈
           </SuiTypography>
         ),
-        소속: [logoInvesion, "삼성건설"],
+        소속: (
+          <SuiTypography variant="caption" color="text" fontWeight="medium">
+            삼성건설
+          </SuiTypography>
+        ),
         행동: (
           <SuiTypography variant="caption" color="text" fontWeight="medium">
             정상
+          </SuiTypography>
+        ),
+        연락처: (
+          <SuiTypography variant="caption" color="text" fontWeight="medium">
+            01023397372
           </SuiTypography>
         ),
         상태: (

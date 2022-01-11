@@ -1,0 +1,8 @@
+.Card {
+  cursor: pointer;
+  transition: transform 250ms ease-in;
+}
+
+.Card:hover {
+  transform: scale(1.05);
+}

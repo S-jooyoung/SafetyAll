@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import Marker from "assets/images/marker.png";
 
 const { kakao } = window;
 
@@ -8,6 +9,12 @@ const KakaoMap = ({ mPositions }) => {
   const markerPositions = mPositions;
   const [kakaoMap, setkakaoMap] = useState(null);
   const [, setMarkers] = useState([]);
+
+  const imageSrc = Marker;
+  const imageSize = new kakao.maps.Size(45, 45);
+  const imageOption = { offset: new kakao.maps.Point(27, 69) };
+
+  const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
 
   useEffect(() => {
     const center = new kakao.maps.LatLng(37.50802, 127.062835);
@@ -46,7 +53,9 @@ const KakaoMap = ({ mPositions }) => {
       markers.forEach((marker) => marker.setMap(null));
 
       // assign new markers
-      return positions.map((position) => new kakao.maps.Marker({ map: kakaoMap, position }));
+      return positions.map(
+        (position) => new kakao.maps.Marker({ map: kakaoMap, position, image: markerImage })
+      );
     });
 
     if (positions.length > 0) {
