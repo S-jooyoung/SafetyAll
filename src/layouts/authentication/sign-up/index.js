@@ -42,7 +42,7 @@ function SignUp() {
 
   return (
     <BasicLayout
-      title="Welcome!"
+      title="환영합니다!"
       description="안전관리의 새로운 패러다임을 체험해보세요"
       image={curved6}
     >

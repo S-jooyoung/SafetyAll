@@ -78,7 +78,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "로그아웃",
+    name: "회원가입",
     key: "sign-up",
     route: "/authentication/sign-up",
     icon: <SpaceShip size="12px" />,
