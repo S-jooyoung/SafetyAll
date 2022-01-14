@@ -1,14 +1,23 @@
+import { useEffect, useState } from "react";
+
 export default function Positiondata() {
+  const [Positions, setPostiones] = useState([]);
+  const API_KEY = process.env.REACT_APP_SAFETYALL_API;
+
+  useEffect(() => {
+    const requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
+
+    fetch(API_KEY, requestOptions)
+      .then((response) => response.json())
+      .then((result) => result.workers.map((worker) => [worker.latitude, worker.longitude]))
+      .then((workers) => setPostiones(workers));
+  }, [Positions]);
+
   return {
-    totalWorker: [
-      [37.4995904912409185, 127.0263723554437],
-      [37.4994279412430814, 127.02794423197847],
-      [37.4985537421499505, 127.02882598822454],
-      [37.4976255931541384, 127.02935713582038],
-      [37.49629291770947, 127.02587362608637],
-      [37.49754540521486, 127.02546694890695],
-      [37.49646391248451, 127.02675574250912],
-    ],
+    totalWorker: Positions,
     warningWorker: [
       [37.499590490909185, 127.0263723554437],
       [37.499427948430814, 127.02794423197847],
