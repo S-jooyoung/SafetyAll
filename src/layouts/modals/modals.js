@@ -12,13 +12,7 @@ const Modals = ({ open, close, header }) => {
     <div className={Mopen ? `${styles.openModal} ${styles.modal}` : `${styles.modal}`}>
       {Mopen ? (
         <section>
-          <header>
-            {Mheader}
-            <button type="button" className="close" onClick={Mclose}>
-              {" "}
-              &times;{" "}
-            </button>
-          </header>
+          <header className={styles.blinking}>{Mheader}</header>
           <main>
             <li>경고</li>
             <li>사유:헬멧 미착용</li>

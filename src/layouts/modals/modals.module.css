@@ -15,7 +15,7 @@
 }
 .modal > section {
   width: 90%;
-  max-width: 450px;
+  max-width: 800px;
   margin: 0 auto;
   border-radius: 0.3rem;
   background-color: #fff;
@@ -24,25 +24,14 @@
   overflow: hidden;
 }
 .modal > section > header {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 64px 16px 16px;
+  padding: 16px 16px 16px 16px;
   background-color: red;
   font-weight: 700;
 }
-.modal > section > header button {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  width: 30px;
-  font-size: 21px;
-  font-weight: 700;
-  text-align: center;
-  color: #999;
-  background-color: transparent;
-}
+
 .modal > section > main {
   padding: 16px;
   border-bottom: 1px solid #dee2e6;
@@ -80,6 +69,37 @@
     opacity: 0;
   }
   to {
+    opacity: 1;
+  }
+}
+
+.blinking {
+  -webkit-animation: blink 0.5s ease-in-out infinite alternate;
+  -moz-animation: blink 0.5s ease-in-out infinite alternate;
+  animation: blink 0.5s ease-in-out infinite alternate;
+  font-size: 100px;
+}
+@-webkit-keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
     opacity: 1;
   }
 }

@@ -23,7 +23,6 @@ import { useSoftUIController, setMiniSidenav } from "context";
 
 // Images
 import brand from "assets/images/logo-ct.png";
-import Modals from "layouts/modals/modals";
 
 export default function App() {
   const [controller, dispatch] = useSoftUIController();
@@ -66,17 +65,6 @@ export default function App() {
       return null;
     });
 
-  // Modal state function
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const openModal = () => {
-    setModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setModalOpen(false);
-  };
-
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -93,16 +81,6 @@ export default function App() {
             />
           </>
         )}
-        <button type="button" onClick={openModal}>
-          모달팝업
-        </button>
-        <Modals //
-          open={modalOpen}
-          close={closeModal}
-          header="확인하세요"
-        >
-          팝업창입니다.
-        </Modals>
         <Switch>
           {getRoutes(routes)}
           <Redirect from="*" to="/dashboard" />
