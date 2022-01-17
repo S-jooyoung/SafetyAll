@@ -1,24 +1,38 @@
-import { useEffect, useState } from "react";
+import axios from "axios";
 
-export default function Countdata() {
-  const [Counts, setCounts] = useState(0);
-  const API_KEY = process.env.REACT_APP_SAFETYALL_API;
+class Count {
+  constructor() {
+    this.count = axios.create({
+      baseURL: "http://a271-175-120-29-131.ngrok.io/Api/v1/Api.php",
+    });
+  }
 
-  useEffect(() => {
-    const requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
+  async totalCountData() {
+    const response = await this.count.get("Api.php", {
+      params: {
+        apicall: "selectWorker",
+      },
+    });
+    return response.data.workers.length;
+  }
 
-    fetch(API_KEY, requestOptions)
-      .then((response) => response.json())
-      .then((result) => result.workers.length)
-      .then((count) => setCounts(count));
-  }, [Counts]);
+  async warningCountData() {
+    const response = await this.count.get("Api.php", {
+      params: {
+        apicall: "selectWorkerWarning",
+      },
+    });
+    return response.data.workersWarning.length;
+  }
 
-  return {
-    totalCount: Counts,
-    warningCount: 1,
-    cautionCount: 0,
-  };
+  async cautionCountData() {
+    const response = await this.count.get("Api.php", {
+      params: {
+        apicall: "selectWorkerCaution",
+      },
+    });
+    return response.data.workersCaution.length;
+  }
 }
+
+export default Count;

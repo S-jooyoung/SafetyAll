@@ -3,74 +3,110 @@ import { useEffect, useState } from "react";
 // @mui material components
 import Grid from "@mui/material/Grid";
 
-// Soft UI Dashboard React components
-import SuiBox from "components/SuiBox";
-
 // Soft UI Dashboard React example components
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
 import MiniStatisticsCard from "examples/Cards/StatisticsCards/MiniStatisticsCard";
 
-// Soft UI Dashboard React base styles
+// Soft UI Dashboard React components
+import SuiBox from "components/SuiBox";
+import Tablelist from "./components/tablelist/tablelist";
 
 // Dashboard layout components
-import Modals from "layouts/modals/modals";
 import Map from "./components/map";
 
 // Style
 import styles from "./index.module.css";
 
 // Data
+import Count from "./data/countdata";
+import Position from "./data/positiondata";
 import Tabledata from "./data/tabledata";
-import Tablelist from "./components/tablelist/tablelist";
-import Positiondata from "./data/positiondata";
-import Countdata from "./data/countdata";
 
 function Dashboard() {
   const [markerPositions, setMarkerPositions] = useState([]);
+  const [totalCount, setTotalCount] = useState(0);
+  const [warningCount, setWarningCount] = useState(0);
+  const [cautionCount, setCautionCount] = useState(0);
+  const [rows, setRows] = useState([]);
 
-  const { columns, rows } = Tabledata();
+  const count = new Count();
+  const position = new Position();
+  const tabledata = new Tabledata();
 
-  const { totalWorker, warningWorker, cautionWorker } = Positiondata();
+  const columns = [
+    { name: "작업자", align: "center" },
+    { name: "연락처", align: "center" },
+    { name: "행동", align: "center" },
+  ];
 
-  const { totalCount, warningCount, cautionCount } = Countdata();
+  useEffect(() => {
+    tabledata //
+      .datatable()
+      .then((table) => setRows(table));
+  }, [rows]);
+
+  useEffect(() => {
+    count //
+      .totalCountData()
+      .then((total) => setTotalCount(total));
+
+    count //
+      .warningCountData()
+      .then((warn) => setWarningCount(warn));
+
+    count //
+      .cautionCountData()
+      .then((caution) => setCautionCount(caution));
+  }, [rows]);
+
+  const totalClick = () => {
+    position //
+      .totalPosition()
+      .then((total) => {
+        setMarkerPositions(total);
+      });
+  };
+
+  const warnClick = () => {
+    position //
+      .warningPosition()
+      .then((warn) => {
+        setMarkerPositions(warn);
+      });
+  };
+
+  const cautionClick = () => {
+    position //
+      .cautionPosition()
+      .then((caution) => {
+        setMarkerPositions(caution);
+      });
+  };
 
   // Modal state function
-  const [modalOpen, setModalOpen] = useState(false);
+  // const [modalOpen, setModalOpen] = useState(false);
 
-  const openModal = () => {
-    setModalOpen(true);
-  };
+  // const openModal = () => {
+  //   setModalOpen(true);
+  // };
 
-  const closeModal = () => {
-    setModalOpen(false);
-  };
-
-  if (warningCount > 0 || cautionCount) {
-    useEffect(() => {
-      openModal();
-    }, [warningCount, cautionCount]);
-  }
+  // const closeModal = () => {
+  //   setModalOpen(false);
+  // };
 
   return (
     <>
-      <Modals open={modalOpen} close={closeModal} header="WARNING">
+      {/* <Modals open={modalOpen} close={closeModal} header="WARNING">
         팝업창입니다.
-      </Modals>
+      </Modals> */}
       <DashboardLayout>
         <DashboardNavbar />
         <SuiBox py={3}>
           <SuiBox mb={3}>
             <Grid container spacing={3}>
-              <Grid
-                className={styles.Card}
-                item
-                xs={12}
-                sm={4}
-                xl={4}
-                onClick={() => setMarkerPositions(totalWorker)}
-              >
+              <Grid className={styles.Card} item xs={12} sm={4} xl={4} onClick={totalClick}>
                 <MiniStatisticsCard
                   title={{ text: "현재 작업자" }}
                   count={totalCount}
@@ -79,28 +115,14 @@ function Dashboard() {
                   현재작업자
                 </MiniStatisticsCard>
               </Grid>
-              <Grid
-                className={styles.Card}
-                item
-                xs={12}
-                sm={4}
-                xl={4}
-                onClick={() => setMarkerPositions(warningWorker)}
-              >
+              <Grid className={styles.Card} item xs={12} sm={4} xl={4} onClick={warnClick}>
                 <MiniStatisticsCard
                   title={{ text: "부상 의심자" }}
                   count={warningCount}
                   icon={{ color: "error", component: "public" }}
                 />
               </Grid>
-              <Grid
-                className={styles.Card}
-                item
-                xs={12}
-                sm={4}
-                xl={4}
-                onClick={() => setMarkerPositions(cautionWorker)}
-              >
+              <Grid className={styles.Card} item xs={12} sm={4} xl={4} onClick={cautionClick}>
                 <MiniStatisticsCard
                   title={{ text: "안전모 착용 주의자" }}
                   count={cautionCount}

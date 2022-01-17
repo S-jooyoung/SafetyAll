@@ -1,36 +1,24 @@
-// Soft UI Dashboard React components
+import axios from "axios";
 
-import { useEffect, useState } from "react";
+class Tabledata {
+  constructor() {
+    this.table = axios.create({
+      baseURL: "http://a271-175-120-29-131.ngrok.io/Api/v1/Api.php",
+    });
+  }
 
-export default function Tabledata() {
-  const [workerTable, setWorkerTable] = useState([]);
-  const API_KEY = process.env.REACT_APP_SAFETYALL_API;
-
-  useEffect(() => {
-    const requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
-
-    fetch(API_KEY, requestOptions)
-      .then((response) => response.json())
-      .then((result) =>
-        result.workers.map((worker) => ({
-          작업자: worker.workerName,
-          연락처: worker.workerPhoneNum,
-          행동: worker.status,
-        }))
-      )
-      .then((workers) => setWorkerTable(workers));
-  }, [workerTable]);
-
-  return {
-    columns: [
-      { name: "작업자", align: "center" },
-      { name: "연락처", align: "center" },
-      { name: "행동", align: "center" },
-    ],
-
-    rows: workerTable,
-  };
+  async datatable() {
+    const response = await this.table.get("Api.php", {
+      params: {
+        apicall: "selectWorker",
+      },
+    });
+    return response.data.workers.map((worker) => ({
+      작업자: worker.workerName,
+      연락처: worker.workerPhoneNum,
+      행동: worker.status,
+    }));
+  }
 }
+
+export default Tabledata;
