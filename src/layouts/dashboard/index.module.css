@@ -6,3 +6,7 @@
 .Card:hover {
   transform: scale(1.05);
 }
+
+.Warning {
+  color: red;
+}

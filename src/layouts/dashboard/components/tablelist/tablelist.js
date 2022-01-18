@@ -34,7 +34,7 @@ const Tablelist = (props) => {
               done
             </Icon>
             <SuiTypography variant="button" fontWeight="regular" color="text">
-              &nbsp;<strong>30명</strong> 실시간...
+              &nbsp;<strong> 실시간..</strong>
             </SuiTypography>
           </SuiBox>
         </SuiBox>

@@ -1,7 +1,12 @@
 {
   "env": {
+    "browser": true,
     "node": true,
-    "es2021": true
+    "es2021": true,
+    "commonjs": true
+  },
+  "globals": {
+    "$": true
   },
   "extends": ["plugin:react/recommended", "airbnb", "prettier"],
   "parserOptions": {

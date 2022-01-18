@@ -1,4 +1,5 @@
 import React from "react";
+import SuiBox from "components/SuiBox";
 import styles from "./modals.module.css";
 
 const Modals = ({ open, close, header }) => {
@@ -14,11 +15,15 @@ const Modals = ({ open, close, header }) => {
         <section>
           <header className={styles.blinking}>{Mheader}</header>
           <main>
-            <li>경고</li>
-            <li>사유:헬멧 미착용</li>
-            <li>작업자:백동채</li>
-            <li>위치:정보통신산업기술원</li>
-            <li>전화번호:010-1234-1234</li>
+            <SuiBox mb={3}>
+              <ul>
+                <li>경고</li>
+                <li>사유:낙상</li>
+                <li>작업자:서영준</li>
+                <li>위치:정보통신산업기술원</li>
+                <li>전화번호:01012341234</li>
+              </ul>
+            </SuiBox>
           </main>
           <footer>
             <button type="button" className="close" onClick={Mclose}>
