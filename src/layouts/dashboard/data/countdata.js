@@ -3,7 +3,7 @@ import axios from "axios";
 class Count {
   constructor() {
     this.count = axios.create({
-      baseURL: "http://a271-175-120-29-131.ngrok.io/Api/v1/Api.php",
+      baseURL: process.env.REACT_APP_SAFE_API_KEY,
     });
   }
 
