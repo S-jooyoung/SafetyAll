@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 // @mui material components
 import Grid from "@mui/material/Grid";
@@ -26,10 +26,13 @@ import Position from "./data/positiondata";
 import Tabledata from "./data/tabledata";
 
 function Dashboard() {
+  const isInitialMount = useRef(true);
+
   const [markerPositions, setMarkerPositions] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [warningCount, setWarningCount] = useState(0);
   const [cautionCount, setCautionCount] = useState(0);
+  const [warnRows, setWarnRows] = useState([]);
   const [rows, setRows] = useState([]);
 
   const count = new Count();
@@ -42,6 +45,18 @@ function Dashboard() {
     { name: "행동", align: "center" },
   ];
 
+  // Modal state function
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  // total
   useEffect(() => {
     const timer = setTimeout(() => {
       tabledata //
@@ -54,23 +69,33 @@ function Dashboard() {
           setMarkerPositions([]);
           setMarkerPositions(total);
         });
-    });
+
+      count //
+        .totalCountData()
+        .then((total) => setTotalCount(total));
+
+      count //
+        .warningCountData()
+        .then((warn) => setWarningCount(warn));
+
+      count //
+        .cautionCountData()
+        .then((caution) => setCautionCount(caution));
+    }, 3000);
     return () => clearTimeout(timer);
   }, [rows]);
 
+  // warn Event
   useEffect(() => {
-    count //
-      .totalCountData()
-      .then((total) => setTotalCount(total));
-
-    count //
-      .warningCountData()
-      .then((warn) => setWarningCount(warn));
-
-    count //
-      .cautionCountData()
-      .then((caution) => setCautionCount(caution));
-  }, [rows]);
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+    } else {
+      tabledata //
+        .warningtable()
+        .then((warntable) => setWarnRows(warntable));
+      openModal();
+    }
+  }, [warningCount]);
 
   const totalClick = useCallback(() => {
     position //
@@ -99,26 +124,15 @@ function Dashboard() {
       });
   }, [markerPositions]);
 
-  // Modal state function
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const openModal = () => {
-    setModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setModalOpen(false);
-  };
-
-  useEffect(() => {
-    if (warningCount > 0) {
-      openModal();
-    }
-  });
-
   return (
     <>
-      <Modals open={modalOpen} close={closeModal} header="WARNING">
+      <Modals
+        open={modalOpen}
+        close={closeModal}
+        header="WARNING"
+        columns={columns}
+        warnRows={warnRows}
+      >
         팝업창입니다.
       </Modals>
       <DashboardLayout>

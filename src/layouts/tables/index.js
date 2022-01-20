@@ -11,6 +11,7 @@ import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
 import ReportsBarChart from "examples/Charts/BarCharts/ReportsBarChart";
 import GradientLineChart from "examples/Charts/LineCharts/GradientLineChart";
+import MixedChart from "examples/Charts/MixedChart";
 
 // Soft UI Dashboard React base styles
 import typography from "assets/theme/base/typography";
@@ -58,6 +59,11 @@ function Tables() {
               height="20.25rem"
               chart={gradientLineChartData}
             />
+          </Grid>
+          <Grid item xs={12} lg={5}>
+            <MixedChart title="일별확인" chart={gradientLineChartData}>
+              믹스차트
+            </MixedChart>
           </Grid>
         </Grid>
       </SuiBox>
