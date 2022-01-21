@@ -7,7 +7,6 @@ import Icon from "@mui/material/Icon";
 // Soft UI Dashboard React components
 import SuiBox from "components/SuiBox";
 import SuiTypography from "components/SuiTypography";
-import SuiInput from "components/SuiInput";
 
 // Soft UI Dashboard Materail-UI example components
 import Table from "examples/Tables/Table";
@@ -37,9 +36,6 @@ const Tablelist = (props) => {
               &nbsp;<strong> 실시간..</strong>
             </SuiTypography>
           </SuiBox>
-        </SuiBox>
-        <SuiBox px={2}>
-          <SuiInput placeholder="입력하세요" icon={{ component: "search", direction: "left" }} />
         </SuiBox>
       </SuiBox>
       <SuiBox

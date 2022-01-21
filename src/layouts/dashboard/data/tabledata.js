@@ -26,7 +26,7 @@ class Tabledata {
         apicall: "selectWorkerWarning",
       },
     });
-    return response.data.workers.map((worker) => ({
+    return response.data.workersWarning.map((worker) => ({
       작업자: worker.workerName,
       연락처: worker.workerPhoneNum,
       행동: worker.status,
