@@ -41,8 +41,17 @@ function Dashboard() {
 
   const columns = [
     { name: "작업자", align: "center" },
+    { name: "그룹", align: "center" },
     { name: "연락처", align: "center" },
     { name: "행동", align: "center" },
+  ];
+
+  const Mcolumns = [
+    { name: "작업자", align: "center" },
+    { name: "그룹", align: "center" },
+    { name: "연락처", align: "center" },
+    { name: "행동", align: "center" },
+    { name: "시간", align: "center" },
   ];
 
   // Modal state function
@@ -130,7 +139,7 @@ function Dashboard() {
         open={modalOpen}
         close={closeModal}
         header="WARNING"
-        columns={columns}
+        columns={Mcolumns}
         warnRows={warnRows}
       >
         팝업창입니다.

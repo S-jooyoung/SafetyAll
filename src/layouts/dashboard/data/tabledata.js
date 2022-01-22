@@ -15,6 +15,7 @@ class Tabledata {
     });
     return response.data.workers.map((worker) => ({
       작업자: worker.workerName,
+      그룹: worker.workerGroup,
       연락처: worker.workerPhoneNum,
       행동: worker.status,
     }));
@@ -28,8 +29,10 @@ class Tabledata {
     });
     return response.data.workersWarning.map((worker) => ({
       작업자: worker.workerName,
+      그룹: worker.workerGroup,
       연락처: worker.workerPhoneNum,
       행동: worker.status,
+      시간: worker.dateTime,
     }));
   }
 }
