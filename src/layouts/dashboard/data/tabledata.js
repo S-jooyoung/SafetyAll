@@ -24,14 +24,14 @@ class Tabledata {
   async warningtable() {
     const response = await this.table.get("Api.php", {
       params: {
-        apicall: "selectWorkerWarning",
+        apicall: "selectDReadWarning",
       },
     });
-    return response.data.workersWarning.map((worker) => ({
+    return response.data.DReadWarning.map((worker) => ({
       작업자: worker.workerName,
       그룹: worker.workerGroup,
       연락처: worker.workerPhoneNum,
-      행동: worker.status,
+      행동: worker.reason,
       시간: worker.dateTime,
     }));
   }

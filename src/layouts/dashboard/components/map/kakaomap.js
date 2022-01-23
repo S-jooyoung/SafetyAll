@@ -20,7 +20,7 @@ const KakaoMap = ({ mPositions }) => {
     const center = new kakao.maps.LatLng(37.50802, 127.062835);
     const options = {
       center,
-      level: 3,
+      level: 1,
     };
     const map = new kakao.maps.Map(container.current, options);
 

@@ -151,7 +151,7 @@ function Dashboard() {
             <Grid container spacing={3}>
               <Grid className={styles.Card} item xs={12} sm={4} xl={4} onClick={totalClick}>
                 <MiniStatisticsCard
-                  title={{ text: "작업자" }}
+                  title={{ text: "전체" }}
                   count={totalCount}
                   icon={{ color: "info", component: "public" }}
                 >

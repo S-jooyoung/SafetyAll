@@ -19,10 +19,10 @@ class Count {
   async warningCountData() {
     const response = await this.count.get("Api.php", {
       params: {
-        apicall: "selectWorkerWarning",
+        apicall: "selectDReadWarning",
       },
     });
-    return response.data.workersWarning.length;
+    return response.data.DReadWarning.length;
   }
 
   async cautionCountData() {

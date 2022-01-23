@@ -46,6 +46,7 @@ import Shop from "examples/Icons/Shop";
 import Office from "examples/Icons/Office";
 import Document from "examples/Icons/Document";
 import SpaceShip from "examples/Icons/SpaceShip";
+import History from "layouts/history";
 
 const routes = [
   {
@@ -64,6 +65,15 @@ const routes = [
     route: "/tables",
     icon: <Office size="12px" />,
     component: Tables,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "히스토리",
+    key: "history",
+    route: "/history",
+    icon: <Office size="12px" />,
+    component: History,
     noCollapse: true,
   },
   { type: "title", title: "사용자페이지", key: "account-pages" },

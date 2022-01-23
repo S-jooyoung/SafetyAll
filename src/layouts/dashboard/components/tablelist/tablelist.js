@@ -1,15 +1,13 @@
 import React from "react";
 
-// @mui material components
-import Card from "@mui/material/Card";
-import Icon from "@mui/material/Icon";
-
 // Soft UI Dashboard React components
-import SuiBox from "components/SuiBox";
+
 import SuiTypography from "components/SuiTypography";
 
 // Soft UI Dashboard Materail-UI example components
 import Table from "examples/Tables/Table";
+import { Card, Icon } from "@mui/material";
+import SuiBox from "components/SuiBox";
 
 const Tablelist = (props) => {
   const { columns, rows } = props;
@@ -21,7 +19,6 @@ const Tablelist = (props) => {
           <SuiTypography variant="h6" gutterBottom>
             작업자 테이블
           </SuiTypography>
-
           <SuiBox display="flex" alignItems="center" lineHeight={0}>
             <Icon
               sx={{
