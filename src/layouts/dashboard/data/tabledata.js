@@ -28,6 +28,7 @@ class Tabledata {
       },
     });
     return response.data.DReadWarning.map((worker) => ({
+      번호: worker.idx,
       작업자: worker.workerName,
       그룹: worker.workerGroup,
       연락처: worker.workerPhoneNum,

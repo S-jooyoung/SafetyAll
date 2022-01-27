@@ -47,6 +47,7 @@ function Dashboard() {
   ];
 
   const Mcolumns = [
+    { name: "번호", align: "center" },
     { name: "작업자", align: "center" },
     { name: "그룹", align: "center" },
     { name: "연락처", align: "center" },

@@ -60,8 +60,8 @@ function Tables() {
               chart={gradientLineChartData}
             />
           </Grid>
-          <Grid item xs={12} lg={5}>
-            <MixedChart title="일별확인" chart={gradientLineChartData}>
+          <Grid item xs={12} lg={12}>
+            <MixedChart title="월별확인" chart={gradientLineChartData}>
               믹스차트
             </MixedChart>
           </Grid>

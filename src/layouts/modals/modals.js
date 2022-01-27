@@ -1,9 +1,12 @@
 import React, { useRef } from "react";
 import Tablelist from "layouts/dashboard/components/tablelist/tablelist";
 import { Grid } from "@mui/material";
-import SuiInput from "components/SuiInput";
+
 import SuiButton from "components/SuiButton";
+import SuiInput from "components/SuiInput";
+
 import styles from "./modals.module.css";
+import ReasonInput from "./components/reasoninput";
 
 const Modals = ({ open, close, header, columns, warnRows }) => {
   // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
@@ -15,6 +18,27 @@ const Modals = ({ open, close, header, columns, warnRows }) => {
 
   const workerInputRef = useRef();
   const reasonInputRef = useRef();
+
+  const formdata = new FormData();
+
+  const handleInput = () => {
+    formdata.append("idx", workerInputRef.current.value);
+    formdata.append("result", reasonInputRef.current.value);
+
+    const reasonInput = new ReasonInput(formdata);
+
+    reasonInput.inputData();
+  };
+
+  const onClick = () => {
+    handleInput();
+  };
+
+  const onEnter = (event) => {
+    if (event.key === "Enter") {
+      handleInput();
+    }
+  };
 
   return (
     // 모달이 열릴때 openModal 클래스가 생성된다.
@@ -28,18 +52,24 @@ const Modals = ({ open, close, header, columns, warnRows }) => {
                 <Tablelist columns={Mcolumns} rows={MwarnRows} />
               </Grid>
               <Grid item xs={12}>
-                <SuiInput ref={workerInputRef} placeholder="작업자를 입력하세요" />
+                <SuiInput type="number" inputRef={workerInputRef} placeholder="번호를 입력하세요" />
               </Grid>
               <Grid item xs={12}>
-                <SuiInput ref={reasonInputRef} placeholder="사유를 입력하세요" />
+                <SuiInput
+                  type="text"
+                  inputRef={reasonInputRef}
+                  placeholder="사유를 입력하세요"
+                  onKeyPress={onEnter}
+                />
               </Grid>
             </Grid>
           </main>
           <footer>
-            <SuiButton variant="gradient">입력</SuiButton>
-            <SuiButton variant="gradient" className="close" onClick={Mclose}>
-              {" "}
-              닫기{" "}
+            <SuiButton className={styles.btn} variant="gradient" onClick={onClick}>
+              입력
+            </SuiButton>
+            <SuiButton variant="gradient" onClick={Mclose}>
+              닫기
             </SuiButton>
           </footer>
         </section>
