@@ -24,6 +24,7 @@ function History() {
     { name: "연락처", align: "center" },
     { name: "처리", align: "center" },
     { name: "상태", align: "center" },
+    { name: "보고", align: "center" },
     { name: "시간", align: "center" },
   ];
 

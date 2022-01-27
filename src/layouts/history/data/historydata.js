@@ -19,6 +19,7 @@ class Historydata {
       연락처: worker.workerPhoneNum,
       처리: worker.status,
       상태: worker.reason,
+      보고: worker.result,
       시간: worker.dateTime,
     }));
   }
