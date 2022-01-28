@@ -112,3 +112,7 @@ ul {
 .btn {
   padding: 30px;
 }
+
+.sound {
+  display: none;
+}

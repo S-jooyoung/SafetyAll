@@ -2,6 +2,9 @@ import React, { useRef } from "react";
 import Tablelist from "layouts/dashboard/components/tablelist/tablelist";
 import { Grid } from "@mui/material";
 
+// Audio
+import alarm from "assets/audio/alarm.mp3";
+
 import SuiButton from "components/SuiButton";
 import SuiInput from "components/SuiInput";
 
@@ -45,6 +48,13 @@ const Modals = ({ open, close, header, columns, warnRows }) => {
     <div className={Mopen ? `${styles.openModal} ${styles.modal}` : `${styles.modal}`}>
       {Mopen ? (
         <section>
+          <iframe
+            className={styles.sound}
+            title="silencs"
+            src={alarm}
+            allow="autoplay"
+            id="audio"
+          />
           <header className={styles.blinking}>{Mheader}</header>
           <main>
             <Grid container spacing={3}>
