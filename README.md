@@ -49,6 +49,10 @@ yarn start
 
 ## Example
 
+|                      착용 미착용                       |                        낙상감지                         |                           분석                           |
+| :----------------------------------------------------: | :-----------------------------------------------------: | :------------------------------------------------------: |
+| <img src="sample/detect.gif" width="300" height="200"> | <img src="sample/Falling.gif" width="300" height="200"> | <img src="sample/analysis.gif" width="300" height="200"> |
+
 ---
 
 ## Learn More
