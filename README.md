@@ -47,6 +47,20 @@ yarn start
 
 ---
 
+## System configuration.
+
+<img src= "sample/configuration.png">
+
+---
+
+## Prototype of device
+
+|                            앞                            |                            뒤                            |                        결착상태                         |
+| :------------------------------------------------------: | :------------------------------------------------------: | :-----------------------------------------------------: |
+| <img src="sample/device1.jpeg" width="300" height="200"> | <img src="sample/device2.jpeg" width="300" height="200"> | <img src="sample/device3.jpg" width="300" height="200"> |
+
+---
+
 ## Example
 
 |                      착용 미착용                       |                        낙상감지                         |                           분석                           |
