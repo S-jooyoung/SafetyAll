@@ -68,6 +68,11 @@ yarn start
 | <img src="sample/detect.gif" width="300" height="200"> | <img src="sample/Falling.gif" width="300" height="200"> | <img src="sample/analysis.gif" width="300" height="200"> |
 
 ---
+## Reference
+### [HW]
+https://github.com/BAE-JI-WANG/SatetyAll_HW-FW
+### [APP]
+https://github.com/95Seo/SafetyAll_App
 
 ## Learn More
 
