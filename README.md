@@ -80,7 +80,6 @@ https://github.com/95Seo/SafetyAll_App
   - [React : overview of the React documentation](https://pjreddie.com/media/files/papers/yolo_1.pdf)
   - [ReactRouter : server-side routing library for React](https://reactrouter.com/)
   - [MUI: The React UI library you alwats wanted](https://pjreddie.com/media/files/papers/YOLOv3.pdf)
-  - [YOLOv4：Optimal Speed and Accuracy of Object Detection](https://arxiv.org/pdf/2004.10934.pdf)
 
 ---
 
